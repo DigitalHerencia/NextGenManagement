@@ -1,58 +1,49 @@
+import { deckData } from "@/app/data/deck"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export function TestimonialsSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-black">
+    <section
+      id="testimonials"
+      className="section-snap w-full bg-black py-16 md:py-24"
+      aria-labelledby="testimonials-heading"
+    >
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm">Testimonials</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-gradient-to-r from-[#ff00ff] to-[#00ffff] text-transparent bg-clip-text">
-              Success Stories
-            </h2>
-            <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Hear from content creators who have transformed their careers with NextGen Management Agency.
-            </p>
-          </div>
+        <div className="mx-auto flex max-w-3xl flex-col items-center space-y-4 text-center">
+          <div className="inline-block rounded-lg bg-gray-900 px-3 py-1 text-sm">Testimonials</div>
+          <h2
+            id="testimonials-heading"
+            className="text-balance bg-gradient-to-r from-[#ff00ff] to-[#00ffff] bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-5xl"
+          >
+            Success Stories
+          </h2>
+          <p className="text-base text-gray-300 sm:text-lg">
+            Hear from content creators who have transformed their careers with NextGen Management
+            Agency.
+          </p>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-2">
-          <div className="flex flex-col justify-between p-6 bg-gray-900 rounded-lg shadow-lg">
-            <div>
-              <p className="mb-4 text-gray-300">
-                "NextGen Management Agency transformed my content creation business. The analytics tools helped me
-                increase my revenue by 300% in just 6 months. The platform is intuitive and the support team is
-                incredible."
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="/images/profile-2.jpg" alt="Creator" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <p className="text-sm font-medium text-white">Creator Name</p>
-                <p className="text-sm text-gray-400">100K+ Followers</p>
+        <div className="mx-auto mt-10 grid max-w-5xl gap-6 lg:grid-cols-2">
+          {deckData.testimonials.map((testimonial) => (
+            <article
+              key={testimonial.quote}
+              className="rounded-xl border border-gray-800 bg-gray-900 p-6 shadow-lg"
+            >
+              <blockquote className="mb-5 text-gray-300">“{testimonial.quote}”</blockquote>
+              <div className="flex items-center gap-4">
+                <Avatar>
+                  <AvatarImage
+                    src={testimonial.avatarSrc}
+                    alt={`${testimonial.author} profile image`}
+                  />
+                  <AvatarFallback>{testimonial.avatarFallback}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-sm font-medium text-white">{testimonial.author}</p>
+                  <p className="text-sm text-gray-400">{testimonial.audience}</p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between p-6 bg-gray-900 rounded-lg shadow-lg">
-            <div>
-              <p className="mb-4 text-gray-300">
-                "The subscription management and fan engagement tools are game-changers. I can now focus on creating
-                content while NGMA handles the business side. My fan retention rate improved by 85%!"
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="/images/profile-3.jpg" alt="Creator" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <div>
-                <p className="text-sm font-medium text-white">Creator Name</p>
-                <p className="text-sm text-gray-400">50K+ Followers</p>
-              </div>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

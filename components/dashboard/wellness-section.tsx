@@ -1,32 +1,14 @@
 "use client"
-import { NextGen } from "nextgen"
-import { Management } from "management"
-import { Agency } from "agency"
 
 const WellnessSection = () => {
-  // Initialize variables here
-  const nextGen = new NextGen()
-  const management = new Management()
-  const agency = new Agency()
-
-  // Function to handle wellness data
-  const handleWellnessData = () => {
-    // Logic to fetch and process wellness data
-    console.log("Fetching wellness data...")
-    // Example data processing
-    const data = {
-      tenant: "NextGen Management Agency",
-      features: ["Scalable", "Secure", "User-friendly"],
-    }
-    console.log(data)
-  }
-
-  // Render the wellness section
   return (
-    <div>
-      <h1>Wellness Section</h1>
-      <button onClick={handleWellnessData}>Fetch Wellness Data</button>
-    </div>
+    <section className="rounded-lg border border-gray-800 bg-gray-900 p-4">
+      <h2 className="text-xl font-semibold text-white">Wellness Section</h2>
+      <p className="mt-2 text-sm text-gray-300">
+        Wellness guidance and planning tools are available in the upgraded wellness dashboard
+        module.
+      </p>
+    </section>
   )
 }
 
